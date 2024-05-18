@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.cdnfonts.com/css/trebuchet-ms-2');
+
+.back{
+    background-image: url('../img/main.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
+    
+}
+.name{
+    font-family: Berkshire Swash;
+    font-size: 70px;
+    margin-left: 55%;
+    padding-top: 16%;
+}
+.p1{
+    font-family: Comic Sans MS;
+    font-size: 25px;
+    color: rgb(246, 72, 93);
+    margin-left: 59%;
+}
+.btn{
+    font-family: "Poppins", sans-serif;;
+    font-weight: bold;
+    border-radius: 27px;
+    width: 220px;
+    height: 60px;
+    background-color: rgb(242, 132, 132);
+    font-size: 28px;
+    border-width: 1px;
+    border-color: gray;
+    margin-left: 61%;
+}
+
+.nav-link{
+    list-style: none;
+    display: flex;
+    
+    
+}
+.nav-link li{
+    padding: 10px 35px;
+}
+.nav-link a{
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: "Merriweather", serif;
+    color: black;
+}
+
+.navigation{
+    height: 55px;
+}
+
+
+.root{
+    list-style: none;
+    display: flex;
+    margin-left: 48%;
+}
+.root li{
+    padding: 0px 10px;
+}
+.aback{
+    background-image: url('../img/download\ \(2\).jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
+    
+}
+.aboutdata{
+    font-family: Arial;
+    font-size: 20px;
+    padding-left: 15%;
+    padding-top: 10%;
+    padding-right: 15%;
+    text-align: justify;
+}
+.con{
+    background-image: url('../img/contact.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.usermain{
+    background-color: rgba(255, 160, 122, 0.486);
+   
+    height: 100vh;
+}
+.userl{
+    font-family: Comic Sans MS;
+    font-size: 30px;
+    padding-top: 5%;
+    text-align: center;
+}
+.lable1{
+    font-family: Arial;
+    font-size: 20px;
+    padding-left: 37%;
+}
+.username{
+    width: 350px;
+    height: 35px;
+    border-radius: 8px;
+    margin-left: 37%;
+    border-color: rgb(121, 121, 121);
+}
+.forgot{
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(22, 155, 213);
+    margin-left: 53%;
+}
+.flower{
+  
+    padding-left: 80% ;
+    width: 300px;
+    height: 250px;
+}
+.btnlog{
+    font-family: "Poppins", sans-serif;;
+    font-weight: bold;
+    border-radius: 27px;
+    width: 220px;
+    height: 60px;
+    background-color: rgb(242, 132, 132);
+    font-size: 28px;
+    border-width: 1px;
+    border-color: gray;
+    margin-left: 43%;
+}
+.newcus{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 43%;
+}
+.sign{
+    
+        font-weight: bold;
+        font-size: 16px;
+        color: rgb(22, 155, 213);
+        
+}
+.contactname{
+    font-size: 37px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin-left: 10%;
+    padding-top: 5%;
+}
+.inname{
+    width:320px;
+    height: 35px;
+    margin-left: 6%;
+    border-radius: 4px;
+}
+.inemail{
+    width:320px;
+    height: 35px;
+    margin-left: 6%;
+    border-radius: 4px;
+    margin-top: 1%;
+}
+.phone{
+    width:320px;
+    height: 35px;
+    margin-left: 6%;
+    border-radius: 4px;
+    margin-top: 1%;
+}
+.msg{
+    width:320px;
+    height: 35px;
+    margin-left: 6%;
+    border-radius: 4px;
+    margin-top: 1%;
+}
+
+.btnflower{
+    width: 184px;
+    height: 229px;
+    margin-top: 5%;
+    margin-left: 20%;
+    background: url('../img/wedding.jpg');
+    background-size: cover;
+    border: none;
+    width: 185px; /* Set the width of the button */
+    height: 230px; /* Set the height of the button */
+    cursor: pointer;
+}
+.giftf{
+    width: 184px;
+    height: 229px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background: url('../img/gift.jpg');
+    background-size: cover;
+    border: none;
+    width: 185px; /* Set the width of the button */
+    height: 230px; /* Set the height of the button */
+    cursor: pointer;
+}
+.cof{
+    width: 184px;
+    height: 229px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background: url('../img/office.jpg');
+    background-size: cover;
+    border: none;
+    width: 185px; /* Set the width of the button */
+    height: 230px; /* Set the height of the button */
+    cursor: pointer;
+}
+.categorybtn{
+    width:250px;
+    height: 28px;
+    margin-left: 18%;
+    font-size: 21px;
+    font-family: cooper;
+    background: none;
+    border: none;
+}
+.categorybtn1{
+    width:250px;
+    height: 28px;
+    margin-left: 6%;
+    font-size: 21px;
+    font-family: cooper;
+    background: none;
+    border: none;
+}
