@@ -1,6 +1,7 @@
 import userim from './img/user.png';
 import cartim from './img/cart.png';
 import { useNavigate } from 'react-router-dom';
+import './CSS/navbar.css';
 
 export default function Navbar(){
     const navigate = useNavigate(); 

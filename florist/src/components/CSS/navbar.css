@@ -1,0 +1,29 @@
+.nav-link{
+    list-style: none;
+    display: flex;
+    
+    
+}
+.nav-link li{
+    padding: 10px 35px;
+}
+.nav-link a{
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: "Merriweather", serif;
+    color: black;
+}
+
+.navigation{
+    height: 55px;
+    position: fixed;
+}
+.root{
+    list-style: none;
+    display: flex;
+    padding-left: 100%;
+}
+.root li{
+    padding: 0px 20px;
+}
