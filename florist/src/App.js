@@ -10,11 +10,13 @@ import Cart from './components/Cart';
 import Forgot from './components/Forgot';
 import SignUp from './components/SignUp';
 import Details from './components/Details';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
     <BrowserRouter>
+    <Navbar/>
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
