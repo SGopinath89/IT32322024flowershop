@@ -34,11 +34,6 @@
     border-color: gray;
     margin-left: 61%;
 }
-
-
-
-
-
 .aback{
     background-image: url('../img/download\ \(2\).jpeg');
     background-repeat: no-repeat;
@@ -62,7 +57,7 @@
     height: 100vh;
 }
 .usermain{
-    background-color: rgba(255, 160, 122, 0.486);
+    background-color: rgba(255, 160, 122, 0.336);
    
     height: 100vh;
 }
@@ -91,7 +86,7 @@
     margin-left: 53%;
 }
 .flower{
-  
+   
     padding-left: 80% ;
     width: 300px;
     height: 250px;
@@ -208,4 +203,9 @@
     font-family: cooper;
     background: none;
     border: none;
+}
+.cnf{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }

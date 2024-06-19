@@ -69,7 +69,7 @@ export default function User(){
            <input type='password'className='username'/><br/><br/>
          
            <a href='/ForgotPassword' onClick={goToForgot} className='forgot'>Forgot Password</a><br/><br/><br/>
-           <button className='btnlog'>Login</button><br/><br/>
+           <button className='btnlog'>LOGIN</button><br/><br/>
            <div className='newcus'>New Customer?  <a className='sign' href='/Signup' onClick={goToSign}>SignUp</a></div>
             <img src={flower}  className='flower'/>
             
