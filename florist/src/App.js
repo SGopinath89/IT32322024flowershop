@@ -27,6 +27,7 @@ function App() {
         <Route path='/ForgotPassword' element={<Forgot/>}/>
         <Route path='/Signup' element={<SignUp/>} />
         <Route path='/Details' element={<Details/>}/>
+        
     </Routes>
 </BrowserRouter>
     </>

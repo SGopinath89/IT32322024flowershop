@@ -12,6 +12,7 @@ export default function Shop(){
    const goToDetails = () => {
         navigate('/Details');
    };
+   
     return(
         <>
     
