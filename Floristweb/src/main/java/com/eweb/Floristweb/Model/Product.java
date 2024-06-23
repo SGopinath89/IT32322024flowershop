@@ -9,7 +9,7 @@ public class Product {
     private long id;
     private String name;
     private double price;
-    private String description;
+
     private String imageName;
     private String category;
 
@@ -37,13 +37,7 @@ public class Product {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+   
 
     public String getImageName() {
         return imageName;

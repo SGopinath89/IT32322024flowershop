@@ -209,3 +209,72 @@
     font-weight: bold;
     text-align: center;
 }
+.home{
+    width: 184px;
+    height: 229px;
+    margin-top: 5%;
+    margin-left: 20%;
+    background: url('../img/home.jpg');
+    background-size: cover;
+    border: none;
+    width: 185px; /* Set the width of the button */
+    height: 230px; /* Set the height of the button */
+    cursor: pointer;
+}
+.natu{
+    width: 184px;
+    height: 229px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background: url('../img/natural.jpeg');
+    background-size: cover;
+    border: none;
+    width: 185px; /* Set the width of the button */
+    height: 230px; /* Set the height of the button */
+    cursor: pointer;
+}
+.sym{
+    width: 184px;
+    height: 229px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background: url('../img/sympethy.png');
+    background-size: cover;
+    border: none;
+    width: 185px; /* Set the width of the button */
+    height: 230px; /* Set the height of the button */
+    cursor: pointer;
+}
+.products{
+    padding-top: 5%;
+    padding-left: 5%;
+    display: flex;
+    
+}
+.pr li{
+    list-style: none;
+}
+.addcrt{
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(242, 132, 132);
+    font-size: 16px;
+    border-width: 1px;
+    border-color: gray;
+   
+}
+.productitem {
+    margin: 50px; /* Add space around each product */
+}
+.pr{
+    text-align: center;
+    font-size: 18px;
+    padding-left: 5%;
+}
+.primage{
+    width: 150px;
+    height: 150px;
+}

@@ -25,17 +25,27 @@ export default function Details() {
     }, [category]);
 
     return (
-        <div>
+        <div className="usermain">
+            <div className="products">
             {products.length === 0 ? (
                 <p>No products available.</p>
             ) : (
                 products.map(product => (
-                    <ul key={product.id}>
-                        <li>{product.name}</li>
-                        <li>{product.price}</li>
-                    </ul>
+                    <div key={product.id} className="productitem" >
+                        <img src={product.imageName} alt={product.name} className="primage" />
+                        <ul className="pr">
+                            <li> {product.name}</li>
+                            <li>{product.price}</li>
+                            <li> {product.description}</li>
+                            <li>{product.category}</li>
+                        
+                        </ul>
+                        <button className="addcrt">Add To Cart</button>
+                    </div>
                 ))
             )}
         </div>
+        </div>
+        
     );
 }
