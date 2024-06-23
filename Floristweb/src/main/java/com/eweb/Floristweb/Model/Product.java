@@ -37,7 +37,7 @@ public class Product {
         this.price = price;
     }
 
-   
+
 
     public String getImageName() {
         return imageName;
