@@ -18,4 +18,9 @@ public class ProductServiceImp implements ProductService{
 
         return productRepo.findAll();
     }
+
+    @Override
+    public List<Product> getByCategory(String category){
+        return productRepo.getByCategory(category);
+    }
 }
