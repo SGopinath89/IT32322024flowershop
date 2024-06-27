@@ -13,7 +13,11 @@ public class CartServiceImp {
     private CartRepo cartRepo;
 
 
-    public List<Cart>getAllPro(){
+    public List<Cart>getAllCart(){
         return cartRepo.findAll();
+    }
+
+    public Cart addToCart(Cart cart){
+        return cartRepo.save(cart);
     }
 }

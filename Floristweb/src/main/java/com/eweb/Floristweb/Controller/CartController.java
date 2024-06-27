@@ -16,12 +16,12 @@ public class CartController {
     private CartRepo cartRepo;
 
     @GetMapping
-    public List<Cart>getAllPro() {
+    public List<Cart>getAllCart() {
         return cartRepo.findAll();
 
     }
     @PostMapping
-    public Cart addCartProduct(@RequestBody Cart cart){
+    public Cart addToCart(@RequestBody Cart cart){
         return cartRepo.save(cart);
     }
     
