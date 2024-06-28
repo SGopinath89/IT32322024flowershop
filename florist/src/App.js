@@ -11,6 +11,7 @@ import SignUp from './components/SignUp';
 import Details from './components/Details';
 import Navbar from './components/Navbar';
 
+
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         <Route path='/ForgotPassword' element={<Forgot/>}/>
         <Route path='/Signup' element={<SignUp/>} />
         <Route path='/Details' element={<Details/>}/>
+       
         
     </Routes>
 </BrowserRouter>

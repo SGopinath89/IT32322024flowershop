@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-const Cart = () => {
-    const [cartItems, setCartItems] = useState([]);
-
-    useEffect(() => {
-        axios.get('http://localhost:8080/cart')
-            .then(response => setCartItems(response.data))
-            .catch(error => console.error('Error fetching cart items:', error));
-    }, []);
+export default function Cart() {
+    const location = useLocation();
+    const { cartItems } = location.state || { cartItems: [] };
 
     return (
-        <div>
-            <h1>Cart</h1>
-            <ul>
-                {cartItems.map(item => (
-                    <li key={item.id}>
-                        Product Name: {item.name} - Price: {item.price}
-                    </li>
-                ))}
-            </ul>
+        <div className="cartmain">
+            <h2>Cart</h2>
+            {cartItems.length === 0 ? (
+                <p>No items in cart.</p>
+            ) : (
+                cartItems.map(item => (
+                    <div key={item.id} className="cartitem">
+                        <img src={item.imageName} alt={item.name} className="cartimage" />
+                        <ul className="cartdetails">
+                            <li>{item.name}</li>
+                            <li>{item.price}</li>
+                            <li>Quantity: {item.count}</li>
+                        </ul>
+                    </div>
+                ))
+            )}
         </div>
     );
-};
-
-export default Cart;
+}

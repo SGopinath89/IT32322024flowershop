@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Details() {
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const location = useLocation();
     const category = new URLSearchParams(location.search).get('category');
+    const [orderCounts, setOrderCounts] = useState({});
+    const [cartItems, setCartItems] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Authentication state
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -23,9 +26,39 @@ export default function Details() {
         };
 
         fetchProducts();
+
+        // Simulating a check for user authentication status
+        const checkAuthStatus = () => {
+            // Replace this with actual authentication check
+            const loggedIn = Boolean(localStorage.getItem("userToken"));
+            setIsLoggedIn(loggedIn);
+        };
+
+        checkAuthStatus();
     }, [category]);
 
-   
+    const handleOrderCountChange = (productId, count) => {
+        setOrderCounts(prevOrderCounts => ({
+            ...prevOrderCounts,
+            [productId]: count
+        }));
+    };
+
+    const handleAddToCart = (productId) => {
+        if (!isLoggedIn) {
+            navigate('/User'); 
+            return;
+        }
+
+        const count = parseInt(orderCounts[productId]) || 1;
+        const product = products.find(p => p.id === productId);
+        const cartItem = { ...product, count };
+        setCartItems(prevCartItems => [...prevCartItems, cartItem]);
+    };
+
+    const handleViewCart = () => {
+        navigate('/cart', { state: { cartItems } });
+    };
 
     return (
         <div className="usermain">
@@ -42,11 +75,22 @@ export default function Details() {
                                 <li>{product.description}</li>
                                 <li>{product.category}</li>
                             </ul>
-                            <button className="addcrt" >Add To Cart</button>
+                            <div className="order-form">
+                                <label htmlFor={`order-count-${product.id}`}>Quantity:</label>
+                                <input 
+                                    type="number" 
+                                    id={`order-count-${product.id}`} 
+                                    value={orderCounts[product.id] || 1} 
+                                    onChange={(e) => handleOrderCountChange(product.id, e.target.value)} 
+                                    min="1"
+                                />
+                            </div>
+                            <button className="addcrt" onClick={() => handleAddToCart(product.id)}>Add To Cart</button>
                         </div>
                     ))
                 )}
             </div>
+            <button className="viewcart" onClick={handleViewCart}>View Cart</button>
         </div>
     );
 }
