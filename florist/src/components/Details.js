@@ -18,6 +18,9 @@ export default function Details() {
                     url = `http://localhost:8080/shopDetail/getByCategory?category=${category}`;
                 }
                 const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
                 const data = await response.json();
                 setProducts(data);
             } catch (error) {
@@ -32,6 +35,7 @@ export default function Details() {
             // Replace this with actual authentication check
             const loggedIn = Boolean(localStorage.getItem("userToken"));
             setIsLoggedIn(loggedIn);
+            console.log("Authentication status:", loggedIn);
         };
 
         checkAuthStatus();
@@ -52,8 +56,13 @@ export default function Details() {
 
         const count = parseInt(orderCounts[productId]) || 1;
         const product = products.find(p => p.id === productId);
-        const cartItem = { ...product, count };
-        setCartItems(prevCartItems => [...prevCartItems, cartItem]);
+        if (product) {
+            const cartItem = { ...product, count };
+            setCartItems(prevCartItems => [...prevCartItems, cartItem]);
+            console.log("Added to cart:", cartItem);
+        } else {
+            console.error("Product not found:", productId);
+        }
     };
 
     const handleViewCart = () => {
