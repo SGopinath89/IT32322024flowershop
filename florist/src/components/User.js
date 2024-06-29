@@ -1,37 +1,50 @@
 import './CSS/main.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import flower from './img/image_2.png';
 
-
-export default function User(){
+export default function User() {
     const navigate = useNavigate(); 
 
-    const goToForgot = () =>{
-        navigate('/Forgot')
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('http://localhost:8080/User/login', {
+                username,
+                password
+            });
+            // Handle successful login (e.g., save token)
+            console.log(response.data);
+            navigate('/');  // Navigate to home page
+        } catch (error) {
+            // Handle error
+            console.error('Login failed:', error);
+        }
     };
 
-    const goToSign = () =>{
-        navigate('/Signup')
+    const goToForgot = () => {
+        navigate('/Forgot');
     };
 
-    return(
-        <>
-       
+    const goToSign = () => {
+        navigate('/Signup');
+    };
+
+    return (
         <div className='usermain'>
-           <div className='userl'>User Login</div><br/><br/>
-           <label className='lable1'>User Name</label><br/>
-           <input type='text'className='username'/><br/><br/><br/><br/>
-           <label className='lable1'>Password</label><br/>
-           <input type='password'className='username'/><br/><br/>
-         
-           <a href='/ForgotPassword' onClick={goToForgot} className='forgot'>Forgot Password</a><br/><br/><br/>
-           <button className='btnlog'>LOGIN</button><br/><br/>
-           <div className='newcus'>New Customer?  <a className='sign' href='/Signup' onClick={goToSign}>SignUp</a></div>
-            <img src={flower}  className='flower' alt='fl'/>
-            
+            <div className='userl'>User Login</div><br /><br />
+            <label className='lable1'>User Name</label><br />
+            <input type='text' className='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br /><br /><br /><br />
+            <label className='lable1'>Password</label><br />
+            <input type='password' className='username' value={password} onChange={(e) => setPassword(e.target.value)} /><br /><br />
+            <a href='/ForgotPassword' onClick={goToForgot} className='forgot'>Forgot Password</a><br /><br /><br />
+            <button className='btnlog' onClick={handleLogin}>LOGIN</button><br /><br />
+            <div className='newcus'>New Customer? <a className='sign' href='/Signup' onClick={goToSign}>SignUp</a></div>
+            <img src={flower} className='flower' alt='fl' />
         </div>
-        </>
-    )
+    );
 }
