@@ -51,10 +51,7 @@ export default function Details() {
         }
     };
 
-    const handleViewCart = () => {
-        navigate('/cart', { state: { cartItems} });
-    };
-
+   
     return (
         <div className="usermain">
             <div className="products">
@@ -89,7 +86,7 @@ export default function Details() {
                     ))
                 )}
             </div>
-            <button className="viewcart" onClick={handleViewCart}>View Cart</button>
+            
         </div>
     );
 }

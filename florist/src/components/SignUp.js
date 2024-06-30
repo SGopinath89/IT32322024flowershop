@@ -8,7 +8,7 @@ import flower from './img/image_2.png';
 export default function SignUp() {
     const navigate = useNavigate(); 
 
-    const [name, setLastName] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,7 +21,7 @@ export default function SignUp() {
             });
             // Handle successful signup (e.g., navigate to login page)
             console.log(response.data);
-            navigate('/');  // Navigate to home page
+            navigate('/User');  // Navigate to login page
         } catch (error) {
             // Handle error
             console.error('Signup failed:', error);
@@ -35,8 +35,8 @@ export default function SignUp() {
     return (
         <div className='usermain'>
             <div className='userl'>Create Account</div><br /><br />
-            <label className='lable1'>Last Name</label><br />
-            <input type='text' className='username' value={name} onChange={(e) => setLastName(e.target.value)} /><br /><br />
+            <label className='lable1'>Name</label><br />
+            <input type='text' className='username' value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
             <label className='lable1'>Email</label><br />
             <input type='email' className='username' value={email} onChange={(e) => setEmail(e.target.value)} /><br /><br /><br />
             <label className='lable1'>Password</label><br />

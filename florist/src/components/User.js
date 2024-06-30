@@ -8,13 +8,13 @@ import flower from './img/image_2.png';
 export default function User() {
     const navigate = useNavigate(); 
 
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:8080/User/login', {
-                username,
+                email,
                 password
             });
             // Handle successful login (e.g., save token)
@@ -37,8 +37,8 @@ export default function User() {
     return (
         <div className='usermain'>
             <div className='userl'>User Login</div><br /><br />
-            <label className='lable1'>User Name</label><br />
-            <input type='text' className='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br /><br /><br /><br />
+            <label className='lable1'>Email</label><br />
+            <input type='text' className='username' value={email} onChange={(e) => setEmail(e.target.value)} /><br /><br /><br /><br />
             <label className='lable1'>Password</label><br />
             <input type='password' className='username' value={password} onChange={(e) => setPassword(e.target.value)} /><br /><br />
             <a href='/ForgotPassword' onClick={goToForgot} className='forgot'>Forgot Password</a><br /><br /><br />

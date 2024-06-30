@@ -15,7 +15,7 @@ export default function Cart() {
                         <img src={item.imageName} alt={item.name} className="cartimage" />
                         <ul className="cartdetails">
                             <li>{item.name}</li>
-                            <li>{item.price}</li>
+                            <li>Rs.{item.price}.00</li>
                             <li>Quantity: {item.count}</li>
                         </ul>
                     </div>
