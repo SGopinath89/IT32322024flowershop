@@ -8,14 +8,14 @@ import flower from './img/image_2.png';
 export default function SignUp() {
     const navigate = useNavigate(); 
 
-    const [lastName, setLastName] = useState('');
+    const [name, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSignup = async () => {
         try {
             const response = await axios.post('http://localhost:8080/User/add', {
-                lastName,
+                name,
                 email,
                 password
             });
@@ -36,7 +36,7 @@ export default function SignUp() {
         <div className='usermain'>
             <div className='userl'>Create Account</div><br /><br />
             <label className='lable1'>Last Name</label><br />
-            <input type='text' className='username' value={lastName} onChange={(e) => setLastName(e.target.value)} /><br /><br />
+            <input type='text' className='username' value={name} onChange={(e) => setLastName(e.target.value)} /><br /><br />
             <label className='lable1'>Email</label><br />
             <input type='email' className='username' value={email} onChange={(e) => setEmail(e.target.value)} /><br /><br /><br />
             <label className='lable1'>Password</label><br />

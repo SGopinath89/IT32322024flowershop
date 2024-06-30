@@ -8,8 +8,7 @@ export default function Details() {
     const category = new URLSearchParams(location.search).get('category');
     const [orderCounts, setOrderCounts] = useState({});
     const [cartItems, setCartItems] = useState([]);
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Authentication state
-    const [userDetails, setUserDetails] = useState(null);
+ 
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -30,29 +29,6 @@ export default function Details() {
         };
 
         fetchProducts();
-
-        const checkAuthStatus = async () => {
-            const token = localStorage.getItem("userToken");
-            if (token) {
-                setIsLoggedIn(true);
-                try {
-                    const response = await fetch("http://localhost:8080/user/details", {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-                    if (response.ok) {
-                        const data = await response.json();
-                        setUserDetails(data);
-                        console.log("User details:", data);
-                    }
-                } catch (error) {
-                    console.error("Error fetching user details:", error);
-                }
-            }
-        };
-
-        checkAuthStatus();
     }, [category]);
 
     const handleOrderCountChange = (productId, count) => {
@@ -63,24 +39,20 @@ export default function Details() {
     };
 
     const handleAddToCart = (productId) => {
-        if (!isLoggedIn) {
-            navigate('/User'); 
-            return;
-        }
-
         const count = parseInt(orderCounts[productId]) || 1;
         const product = products.find(p => p.id === productId);
         if (product) {
             const cartItem = { ...product, count };
             setCartItems(prevCartItems => [...prevCartItems, cartItem]);
             console.log("Added to cart:", cartItem);
+            navigate('/cart', { state: { cartItems: [...cartItems, cartItem]} });
         } else {
             console.error("Product not found:", productId);
         }
     };
 
     const handleViewCart = () => {
-        navigate('/cart', { state: { cartItems, userDetails } });
+        navigate('/cart', { state: { cartItems} });
     };
 
     return (
@@ -91,11 +63,15 @@ export default function Details() {
                 ) : (
                     products.map(product => (
                         <div key={product.id} className="productitem">
-                            <img src={product.imageName} alt={product.name} className="primage" />
+                            <img 
+                                src={product.imageName || 'default-image.jpg'} 
+                                alt={product.name} 
+                                className="primage" 
+                                onError={(e) => e.target.src = 'default-image.jpg'} // Fallback image
+                            />
                             <ul className="pr">
                                 <li>{product.name}</li>
-                                <li>{product.price}</li>
-                                <li>{product.description}</li>
+                                <li>Rs.{product.price}.00</li>
                                 <li>{product.category}</li>
                             </ul>
                             <div className="order-form">

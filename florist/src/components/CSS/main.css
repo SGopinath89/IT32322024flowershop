@@ -278,3 +278,11 @@
     width: 150px;
     height: 150px;
 }
+.cartdetail{
+    padding-top: 10%;
+}
+.cartimage{
+    width: 200px;
+    height: 200px;
+    margin-left: 5%;
+}
