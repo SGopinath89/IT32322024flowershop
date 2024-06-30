@@ -9,6 +9,7 @@ export default function Details() {
     const [orderCounts, setOrderCounts] = useState({});
     const [cartItems, setCartItems] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Authentication state
+    const [userDetails, setUserDetails] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -30,12 +31,25 @@ export default function Details() {
 
         fetchProducts();
 
-        // Simulating a check for user authentication status
-        const checkAuthStatus = () => {
-            // Replace this with actual authentication check
-            const loggedIn = Boolean(localStorage.getItem("userToken"));
-            setIsLoggedIn(loggedIn);
-            console.log("Authentication status:", loggedIn);
+        const checkAuthStatus = async () => {
+            const token = localStorage.getItem("userToken");
+            if (token) {
+                setIsLoggedIn(true);
+                try {
+                    const response = await fetch("http://localhost:8080/user/details", {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        setUserDetails(data);
+                        console.log("User details:", data);
+                    }
+                } catch (error) {
+                    console.error("Error fetching user details:", error);
+                }
+            }
         };
 
         checkAuthStatus();
@@ -66,7 +80,7 @@ export default function Details() {
     };
 
     const handleViewCart = () => {
-        navigate('/cart', { state: { cartItems } });
+        navigate('/cart', { state: { cartItems, userDetails } });
     };
 
     return (
